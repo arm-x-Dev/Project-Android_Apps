@@ -40,20 +40,32 @@ This repository serves as a central collection for my Android development projec
 *   **Architecture:** MVVM (Model-View-ViewModel)
     
 *   **Local Storage:** Room Database / SQLite
+
+
+📂 **Directory Structure**
+
+android-apps/
+├── cane-tracker/        # Agricultural loading & worker weight tracker
+├── wifi-inspector-pro/  # Network diagnostic and security tool
+└── [Future Apps]/       # New projects will be added here
+
+📥 **How to Run**
+*   Bashgit clone https://github.com/yourusername/android-apps.git
     
-
-📂 Directory Structure
-----------------------
-
-Plaintext
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   android-apps/  ├── cane-tracker/        # Agricultural loading & worker weight tracker  ├── wifi-inspector-pro/  # Network diagnostic and security tool  └── [Future Apps]/       # New projects will be added here   `
-
-📝 Future Plans
----------------
-
-*   \[ \] Add a Material You dashboard for all apps.
+*   Open **Android Studio**.
     
-*   \[ \] Implement Firebase cloud syncing for Cane Tracker.
+*   Select **"Open an Existing Project"** and navigate to the specific sub-folder (e.g., cane-tracker).
     
-*   \[ \] Enhance WiFi Inspector with packet sniffing capabilities.
+*   Sync Project with **Gradle Files**.
+    
+*   Run on an **Emulator** or **Physical Device**.
+
+**📝 Future Plans**
+
+*   Add a Material You dashboard for all apps.
+    
+*   Implement Firebase cloud syncing for Cane Tracker.
+    
+*   Enhance WiFi Inspector with packet sniffing capabilities.
+
+  
