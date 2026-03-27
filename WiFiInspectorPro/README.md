@@ -47,3 +47,11 @@ Walk to different areas of the physical room to map the signal:
 Once you've mapped your rooms, click **Finalize Report**. Go to the **View History** screen from the Home menu to see your saved sessions. You will see:
 * **Liquid Crystal Graphs:** A smooth, quadratic bezier curve showing the signal stability over time.
 * **Thermal Heatmaps:** A custom-rendered 3x3 visual grid showing dead zones and strong signal areas shifting from deep Obsidian to Kinetic Lavender.
+
+**App Gallery**
+<img width="1536" height="1536" alt="Appicon" src="https://github.com/user-attachments/assets/e6efd979-1811-4a3b-b351-c3e7549dc06d" />
+![2](https://github.com/user-attachments/assets/07a0e156-0482-49f0-9453-abe78c13ceae)
+![graph](https://github.com/user-attachments/assets/60f2f00c-6439-42f4-bfb3-2b607d88ebf5)
+![4](https://github.com/user-attachments/assets/66458037-34e7-4bb0-be38-142c7031f29d)
+
+
