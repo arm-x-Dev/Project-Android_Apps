@@ -49,6 +49,8 @@ Once you've mapped your rooms, click **Finalize Report**. Go to the **View Histo
 * **Thermal Heatmaps:** A custom-rendered 3x3 visual grid showing dead zones and strong signal areas shifting from deep Obsidian to Kinetic Lavender.
 
 **App Gallery**
+
+
 <img width="576" height="576" alt="Appicon" src="https://github.com/user-attachments/assets/760c341a-b365-418a-acf5-5221f456b36d" />
 
 ![2](https://github.com/user-attachments/assets/ad57baa4-76ad-4a9a-b0f1-5632b281e3d1)
