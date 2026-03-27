@@ -51,7 +51,7 @@ Once you've mapped your rooms, click **Finalize Report**. Go to the **View Histo
 **App Gallery**
 
 
-<img width="576" height="576" alt="Appicon" src="https://github.com/user-attachments/assets/760c341a-b365-418a-acf5-5221f456b36d" />
+``````````````````````````````<img width="576" height="576" alt="Appicon" src="https://github.com/user-attachments/assets/760c341a-b365-418a-acf5-5221f456b36d" />
 
 ![2](https://github.com/user-attachments/assets/ad57baa4-76ad-4a9a-b0f1-5632b281e3d1) ![graph](https://github.com/user-attachments/assets/370f7c73-8bd7-42c5-965f-3b0cec28c601) ![4](https://github.com/user-attachments/assets/4d6b97f9-3134-4922-b6d0-bf56c5b8ec67)
 
