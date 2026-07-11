@@ -16,14 +16,17 @@ This portfolio showcases mobile applications engineered to demonstrate clean, ma
 
 ```mermaid
 graph TD
-    A[Start: Capture Gross Weight] --> B[Input Worker Body Weight]
-    B --> C[Compute Net Weight: Gross - Worker]
-    C --> D[Persist Transaction to Room Local DB]
-    D --> E{Network Connection Available?}
-    E -- Yes --> F[Sync Data with Server]
-    E -- No --> G[Queue Transaction locally]
-    F --> H[End: Sync Complete]
-    G --> H
+    RepoRoot["Repository Root (android-apps/)"] --> CaneTracker["cane-tracker/ (Agricultural & Logistics App)"]
+    RepoRoot --> WifiInspector["wifi-inspector-pro/ (Network Utility & Diagnostics)"]
+    RepoRoot --> ProjectConfig["Global Build Configuration"]
+
+    CaneTracker --> CT_Components["Jetpack Compose UI & MVVM Components"]
+    CaneTracker --> CT_DB["Offline-first Room Database"]
+
+    WifiInspector --> WI_Components["XML Layouts & Material UI"]
+    WifiInspector --> WI_Diagnostics["Network Engine / Diagnostics Audits"]
+
+    ProjectConfig --> Gradle["build.gradle, local.properties, gradle/"]
 ```
 
 ## Tech Stack and Core Engineering
@@ -78,28 +81,5 @@ sdk.dir=/path/to/your/android/sdk
 Contributions to extend capabilities or optimize the existing applications are welcome. Please open an issue to outline suggested changes or submit a structured Pull Request adhering to the repository's MVVM and Clean Architecture patterns.
 
 ## License
-This project is licensed under the MIT License:
 
-```text
-MIT License
-
-Copyright (c) 2026 Alok M
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+This project is licensed under the MIT License.
