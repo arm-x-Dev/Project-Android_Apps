@@ -1,87 +1,93 @@
 # WiFi Inspector Pro
 
-[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
-[![Kotlin](https://img.shields.io/badge/Kotlin-v1.9.0-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
-[![Compose](https://img.shields.io/badge/Jetpack_Compose-Material_3-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white)](https://developer.android.com/jetpack/compose)
-[![Theme](https://img.shields.io/badge/Adaptive-Light_&_Dark-6366F1?style=for-the-badge)](https://material.io/design)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white)](https://developer.android.com)
+[![Kotlin](https://img.shields.io/badge/Kotlin-v1.9.0-7F52FF?style=flat-square&logo=kotlin&logoColor=white)](https://kotlinlang.org)
+[![Compose](https://img.shields.io/badge/Jetpack_Compose-Material_3-4285F4?style=flat-square&logo=jetpackcompose&logoColor=white)](https://developer.android.com/jetpack/compose)
+[![Theme](https://img.shields.io/badge/Adaptive-Light_&_Dark-6366F1?style=flat-square)](https://material.io/design)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://opensource.org/licenses/MIT)
 
-**WiFi Inspector Pro** is a fluid, high-fidelity wireless network diagnostics tool designed to map, track, and visualize WiFi signal coverage across physical spaces. Embodying a clean **"Modern Monolith"** design system, the app utilizes native Material 3, system-aware dark/light modes, organic spring-based bouncy micro-interactions, and a real-time cubic Bezier signal engine.
+## Short Description
+A high-fidelity wireless network diagnostics and space-mapping utility for Android. Built with a unified Material 3 design system, it enables users to visualize wireless coverage through real-time signal analysis and dynamic heatmaps.
 
----
+## Project Introduction
+WiFi Inspector Pro is a specialized diagnostic utility engineered to monitor, map, and audit wireless network coverage. The application utilizes a "Modern Monolith" design aesthetic, utilizing adaptive light/dark themes and spring-based haptic-like micro-interactions. The core scanning system drives a real-time signal capture engine that plots decibel metrics on cubic Bezier curves, while users map physical spaces using customizable grid matrices. The application tracks signal attenuation, identifies dead zones, and structures historical audit logs into comprehensive spatial heatmaps.
 
-## Key Upgrades & New Features
+```mermaid
+sequenceDiagram
+    actor User
+    participant App as WiFi Inspector Pro
+    participant Scanner as Android WifiManager SDK
+    participant Engine as Bezier Signal Engine
+    participant DB as SQLite Storage
 
-We have upgraded the core architecture of the app to deliver an extremely polished, tactile, and responsive user experience. Here is a breakdown of the new features:
+    User->>App: Tap Grid Cell (Start Inspection)
+    App->>Scanner: Initiate Active Network Scan (5s sweep)
+    Scanner-->>App: Return Decibel (dBm) Signals & BSSIDs
+    App->>Engine: Process Raw Signals via Bezier Splines
+    Engine-->>App: Generate Heatmap Coordinates
+    App->>DB: Persist Mapping & Node Metrics
+    App-->>User: Render Staggered Grid with Signal Badge
+```
 
-### 1. Unified "Modern Monolith" Aesthetic
-*   **Mono-Accent Palette:** Replaced the multi-colored neon gradients with a highly refined Indigo accent system (**Electric Indigo `#6366F1`** for Dark Mode, **Royal Indigo `#4F46E5`** for Light Mode).
-*   **Dynamic Slate Surfaces:** Sleek deep slate backgrounds (`#0B0A0F`) and minimalist slate-card structures featuring razor-thin, system-aware borders with 8% opacity.
+## Tech Stack and Core Engineering
 
-### 2. Native System-Aware Light & Dark Themes
-*   **Theme Synchronization:** The entire UI automatically detects and transitions between Dark and Light modes based on the device's system settings.
-*   **Adaptive System Bars:** The Android top status bar and bottom navigation bar update their background fills and icon contrast dynamically to match the active theme.
-*   **Dynamic Heatmaps:** Bilinear thermal heatmaps adapt their color scales cleanly (slate-to-indigo blend) to match dark and light backgrounds.
+* **Technologies:** Kotlin, Java, Jetpack Compose, Material 3, Android SDK, SQLite, Retrofit, OkHttp, LiveData, ViewModels.
+* **Engineering Methods:** Custom Bezier curve drawing (`SignalGraph`), adaptive theme synchronization, spring-based scale feedback modifiers (`Modifier.bounceClick`), staggered index loading animation, bilinear heatmap processing algorithms, and location permissions modeling.
 
-### 3. Organic Spring-Based Tactile Interactions
-*   **Modifier.bounceClick:** Implemented custom spring physics that dynamically squish and scale elements (down to `0.94f`) on press, springing back to standard shape with natural damping on touch release. Applied natively to all buttons, grid mapping tiles, and menu cards.
-*   **Staggered Grid Entry:** Mapping grids load with sequential index-based offset delays, resulting in a beautiful staggered entry animation when entering a room.
+## Getting Started
 
-### 4. High-Fidelity Diagnostics & Scan Reticles
-*   **Cubic Bezier Curves:** The real-time `SignalGraph` now plots history points using cubic Bezier splines (`cubicTo`) instead of rigid jagged lines.
-*   **Infinite Sonar Pulsing & Radar Sweep:**
-    *   **Home Screen Radar:** A dynamic circular radar screen that loops infinite sonar pulses and a rotating visual line sweep overlay.
-    *   **Active Tile Sonar:** Grid cells render beautiful circular ripples radiating from the center during an active scan, while floating/scaling up to `1.08f` using bouncy easing.
-*   **Playful Reticles:** Static grid tiles show clean crosshair SCAN icons instead of loud placeholder text, and empty reports display a beautiful search vector illustration.
+### Prerequisites
+* JDK 17
+* Android Studio Ladybug or later
+* Android SDK (API Level 34 or higher)
 
----
+### Installation and Usage
 
-## Quick Install (Download the App)
+```bash
+# Clone the repository
+git clone https://github.com/arm-x-Dev/Android-Apps.git
 
-If you want to use the app on your Android phone immediately:
+# Navigate into the project directory
+cd Android-Apps/WiFiInspectorPro
 
-1. Look at the file list above and click on **`WiFiInspectorPro.apk`** (or your designated APK artifact).
-2. Click the **Download raw file** button (the tray icon with a down arrow).
-3. Open the downloaded file on your Android device to install. 
+# Compile and package the application debug build
+./gradlew assembleDebug
+```
 
-> [!NOTE]
-> You may need to enable **"Install from unknown sources"** in your Android Security Settings to authorize sideloading the APK.
+## Key Features
 
----
+* **Unified Indigo Theme:** Integrated "Modern Monolith" design using Electric Indigo (`#6366F1`) and Royal Indigo (`#4F46E5`) styles.
+* **System-Aware Adaptation:** Dynamic synchronization with light/dark device theme configurations, including top and bottom status/navigation bars.
+* **Spring-Based Haptics:** Custom responsive scaling (`Modifier.bounceClick`) on input cells, grid buttons, and navigation elements.
+* **Bilinear Heatmap Archives:** Comprehensive scan logs visualizing attenuation boundaries and coverage shifts.
+* **High-Fidelity Diagnostics:** Real-time signal graphing mapped via cubic Bezier splines alongside continuous sonar radar overlays.
 
-## Developer Setup (Android Studio)
+## Directory Structure
 
-To inspect, edit, or compile the source code:
+```text
+WiFiInspectorPro/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/         # Code files (Kotlin/Java)
+│   │   │   └── res/          # Layout resources and Material themes
+│   │   └── build.gradle      # App-level dependencies
+│   └── build/
+├── gradle/
+├── gradlew.bat
+└── build.gradle              # Project-level configuration
+```
 
-1. **Download the Repository:**
-   * Download the ZIP archive from the repository root and extract it.
-   * *Alternatively*, clone the repository using your terminal:
-     ```bash
-     git clone https://github.com/arm-x-Dev/Android-Apps.git
-     ```
-2. **Open Android Studio:** Click **Open** and choose the **`WiFiInspectorPro`** project directory.
-3. **Sync Gradle:** Wait for Android Studio to index code files and configure the Gradle build environment.
-4. **Run Project:** Connect a physical device with USB Debugging enabled (or start an Android Virtual Device emulator) and click the green **Play (Run)** button at the top toolbar.
+## Configuration
+Before running inspections, ensure location services are enabled on the target device. Compile-time configurations require the local SDK path defined inside `local.properties`:
 
----
+```properties
+sdk.dir=/path/to/your/android/sdk
+```
 
-## How to Use the App
+## Contributing
+Contributions for expanding diagnostic engines or improving rendering algorithms are welcome. Open an issue to discuss design enhancements or submit a Pull Request.
 
-### 1. Permissions & Edge-to-Edge Comfort
-*   Upon first launch, the app prompts for Location access—this is required by the Android OS to scan for nearby wireless routers, SSID frequencies, and dBm strengths. All layouts are bounded with status bar insets to prevent UI text overlaps under front-facing camera notches.
+## License
 
-### 2. Access Point Scanning
-*   Tap **Start New Inspection**. The app scans local network nodes and lists them with dynamic signal strength badges (`STRONG`, `GOOD`, `FAIR`) indicating real-time BSSID quality.
-
-### 3. Layout Mapping
-*   In the room layout panel, enter room titles (e.g., *Living Lounge*, *Office Suite*) and tap `+`. Tap any room card to enter the mapping view.
-
-### 4. Active Grid Scanning
-*   Walk to different physical areas of a room to record signal details:
-    *   **Tap a Cell:** Triggers a 5-second sonar ripple scan, locking down the precise average decibel reading. The active cell floats and scales up using custom spring physics during the sweep.
-    *   **Long Press a Cell:** Assign icons such as Router , Door , Window , or Wall  to map obstacles and identify interference dead zones.
-
-### 5. Review Heatmap Archives
-*   Tap **Finalize Report** to output logs. Go to **View Scan History** from the home panel to inspect saved reports complete with smooth Bezier charts and Slate-to-Indigo bilinear heatmaps tracking coverage shifts.
-
----
+This project is licensed under the MIT License.
