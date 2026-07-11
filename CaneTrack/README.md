@@ -1,4 +1,4 @@
-# CaneTrack 🌾
+# CaneTrack 
 
 ![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=github&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
@@ -11,7 +11,7 @@ A high-fidelity, highly-animated Android utility engineered for real-time sugarc
 
 ---
 
-## 📸 Legacy vs. Premium Revamp
+## Legacy vs. Premium Revamp
 
 CaneTrack was transformed from a static, utility-centric tool into a gorgeous, premium, highly-interactive app optimized specifically for high-sunlight, real-world outdoor field operations.
 
@@ -27,28 +27,28 @@ CaneTrack was transformed from a static, utility-centric tool into a gorgeous, p
 
 ---
 
-## ✨ Features & Micro-Interactions
+## Features & Micro-Interactions
 
-### 🎨 Part A: Premium Obsidian Forest Design Language
+### Part A: Premium Obsidian Forest Design Language
 * **High-Sunlight Contrast**: Tailored specifically for agricultural environments. Deep charcoal obsidian tones offer maximum readability under direct sun glare.
 * **Sugarcane Mint Gradients**: Beautiful gradient rings drawn dynamically on a custom canvas showing performance sweeps.
 * **Glassmorphic Layouts**: Smooth rounded cards containing outline accents that adapt gracefully between theme elevations.
 * **Tactile Slide-to-Confirm**: Secure gesture confirmation button requiring a full horizontal drag-sweep to submit and persist session entries.
 
-### 🌀 Part B: Motion & Spring Dynamics
+### Part B: Motion & Spring Dynamics
 * **Elastic Bouncy Physics (`bounceClick`)**: Applied across buttons, crew selectors, and date pickers for satisfying haptic-like scaling feedback.
 * **Rolling Odometer Digits (`AnimatedWeightText`)**: Split columns rolling independently. When weight changes, only the modified numbers slide vertically while decimals and unchanging numbers stand perfectly still.
 * **Accordion Expansions**: Smooth `.animateContentSize()` transitions that ease history cards open elastically to reveal crew lists.
 * **Navigation Sliding Deck**: Transitions slide gracefully from right to left when descending deeper, and left to right when backing out.
 
-### 📱 Part C: Jetpack Glance Home Screen Widget
+### Part C: Jetpack Glance Home Screen Widget
 * **Live Earnings Tracker**: Calculates real-time total session weight and financial earnings in Rupees (`₹`) on the fly.
 * **Quick Log Shortcut**: An interactive `"LOG NEW TRIP"` trigger button that boots the app directly into session mode.
 * **Zero Resource Overhead**: Leverages a local initial loader layout (`widget_initial_layout.xml`) to prevent widget loading lockups during compilation.
 
 ---
 
-## 🛠️ Architecture & Specifications
+## Architecture & Specifications
 
 CaneTrack is written fully in **Kotlin** and built on top of **Jetpack Compose / Material 3**.
 
@@ -64,17 +64,17 @@ implementation("androidx.glance:glance-appwidget:1.1.0")
 // Glance Material 3 Dynamic Theming integration
 implementation("androidx.glance:glance-material3:1.1.0")
 ```
-🚀 How to Compile & Build
+How to Compile & Build
 -------------------------
 
 To compile and assemble the debug application package (.apk), set your local JDK environment variable to the bundled JetBrains Runtime path (inside Android Studio) and run the Gradle wrapper:
 
-### 💻 PowerShell
+### PowerShell
 ```text
 $env:JAVA_HOME="E:\AndroidStudio\jbr"
 .\gradlew.bat assembleDebug
 ```
-### 🐚 Bash / Command Prompt
+### Bash / Command Prompt
 ```text
 set JAVA_HOME="E:\AndroidStudio\jbr"
 gradlew.bat assembleDebug
@@ -82,4 +82,4 @@ gradlew.bat assembleDebug
 TIP
 The resulting standalone debug application binary package will be generated at: app/build/outputs/apk/debug/app-debug.apk
 
-Developed with 🌾 for high-performance agricultural operations.
+Developed with for high-performance agricultural operations.
