@@ -1,85 +1,102 @@
-# CaneTrack 
+# CaneTrack
 
-![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=github&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Language-Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
-![UI Tool](https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white)
-![Widget Engine](https://img.shields.io/badge/Widget-Jetpack%20Glance-00C4CC?style=for-the-badge&logo=androidworkspaces&logoColor=white)
-![Licence](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=flat-square&logo=github&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Language-Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)
+![UI Tool](https://img.shields.io/badge/UI-Jetpack_Compose-4285F4?style=flat-square&logo=jetpackcompose&logoColor=white)
+![Widget Engine](https://img.shields.io/badge/Widget-Jetpack_Glance-00C4CC?style=flat-square&logo=android&logoColor=white)
+![Licence](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
-A high-fidelity, highly-animated Android utility engineered for real-time sugarcane harvest tracking, crew weight logging, and comprehensive earnings diaries—paired with an interactive, glanceable Home Screen Widget.
+## Short Description
+A high-fidelity, highly-animated Android utility engineered for real-time sugarcane harvest tracking, crew weight logging, and comprehensive earnings diaries. It features an interactive, glanceable Home Screen Widget built with Jetpack Glance for immediate access in field operations.
 
----
+## Project Introduction
+CaneTrack is a premium, outdoor-optimized utility designed to replace traditional manual sugarcane harvest logging. Engineered for outdoor clarity with the high-contrast Obsidian Forest design system, the app minimizes glare and eye strain under direct sunlight. The core user flow utilizes a custom-drawn canvas circular progress gauge to monitor daily targets, alongside dynamic animations like rolling odometer numbers for weight feedback. To prevent accidental data entries in rugged environments, users confirm transactions using a secure slide-to-confirm gesture, which persists data locally and immediately schedules updates to the Glance home screen widget.
 
-## Legacy vs. Premium Revamp
+```mermaid
+sequenceDiagram
+    actor User
+    participant App as CaneTrack App
+    participant DB as SQLite/Room Database
+    participant Widget as Jetpack Glance Widget
 
-CaneTrack was transformed from a static, utility-centric tool into a gorgeous, premium, highly-interactive app optimized specifically for high-sunlight, real-world outdoor field operations.
-
-| Feature / Metric | Legacy Experience (Before) | Premium Obsidian Forest Revamp (After) |
-| :--- | :--- | :--- |
-| **Colors & Palette** | Static emerald green accents with default system backgrounds. High glare. | **Obsidian Forest System**: Sleek Obsidian slates (`#070A13`) engineered for sunlight contrast and ultra-low eye strain. |
-| **Progress View** | Standard progress indicators and static text readout panels. | **Circular Progress Canvas Gauge**: Handcrafted `Canvas` arc showing session progress against customizable daily goals (5,000 kg). |
-| **Borders & UI** | Flat panels without depth or adaptive shading. | **Glassmorphic Outlines**: Modern card wrappers with dynamic `1.dp` borders adjusting dynamically to Light/Dark mode. |
-| **Interaction** | Quick tapping on buttons (prone to accidental triggers/data loss in fields). | **Slide-to-Confirm Swipe**: Animated sliding capsule thumb gesture that securely locks in harvest logs. |
-| **Page Transitions** | Standard instant cuts (`Crossfade`) between views. | **Directional Nav Deck**: Elastic, horizontal sliding screens shifting based on hierarchical route index. |
-| **Button Physics** | Standard system default click responses. | **Bouncy Spring Physics**: Dynamic `bounceClick` modifier scaling components smoothly to `0.93f` on touch. |
-| **Live Aggregates** | Must launch the app to inspect running totals. | **Jetpack Glance Widget**: Real-time earnings (`₹`) and weight progress right on the launcher home screen. |
-
----
-
-## Features & Micro-Interactions
-
-### Part A: Premium Obsidian Forest Design Language
-* **High-Sunlight Contrast**: Tailored specifically for agricultural environments. Deep charcoal obsidian tones offer maximum readability under direct sun glare.
-* **Sugarcane Mint Gradients**: Beautiful gradient rings drawn dynamically on a custom canvas showing performance sweeps.
-* **Glassmorphic Layouts**: Smooth rounded cards containing outline accents that adapt gracefully between theme elevations.
-* **Tactile Slide-to-Confirm**: Secure gesture confirmation button requiring a full horizontal drag-sweep to submit and persist session entries.
-
-### Part B: Motion & Spring Dynamics
-* **Elastic Bouncy Physics (`bounceClick`)**: Applied across buttons, crew selectors, and date pickers for satisfying haptic-like scaling feedback.
-* **Rolling Odometer Digits (`AnimatedWeightText`)**: Split columns rolling independently. When weight changes, only the modified numbers slide vertically while decimals and unchanging numbers stand perfectly still.
-* **Accordion Expansions**: Smooth `.animateContentSize()` transitions that ease history cards open elastically to reveal crew lists.
-* **Navigation Sliding Deck**: Transitions slide gracefully from right to left when descending deeper, and left to right when backing out.
-
-### Part C: Jetpack Glance Home Screen Widget
-* **Live Earnings Tracker**: Calculates real-time total session weight and financial earnings in Rupees (`₹`) on the fly.
-* **Quick Log Shortcut**: An interactive `"LOG NEW TRIP"` trigger button that boots the app directly into session mode.
-* **Zero Resource Overhead**: Leverages a local initial loader layout (`widget_initial_layout.xml`) to prevent widget loading lockups during compilation.
-
----
-
-## Architecture & Specifications
-
-CaneTrack is written fully in **Kotlin** and built on top of **Jetpack Compose / Material 3**.
-
-### Sdk Requirements
-*   **Min SDK**: `24` (Android 7.0)
-*   **Target & Compile SDK**: `35` (Android 15)
-*   **Java Compatibility**: `Java 11`
-
-### Added Core Engine Dependencies
-```kotlin
-// Glance App Widget Core
-implementation("androidx.glance:glance-appwidget:1.1.0")
-// Glance Material 3 Dynamic Theming integration
-implementation("androidx.glance:glance-material3:1.1.0")
+    User->>App: Slide-to-Confirm Swipe Gesture
+    App->>DB: Persist Session Log (Weight & Crew Data)
+    DB-->>App: Confirm Persistence Successful
+    App->>Widget: Schedule Widget State Update
+    Widget->>Widget: Read Local Aggregate Data
+    Widget-->>User: Display Updated Earnings (₹) & Weight Progress
 ```
-How to Compile & Build
--------------------------
 
-To compile and assemble the debug application package (.apk), set your local JDK environment variable to the bundled JetBrains Runtime path (inside Android Studio) and run the Gradle wrapper:
+## Tech Stack and Core Engineering
 
-### PowerShell
-```text
+* **Technologies:** Kotlin, Jetpack Compose, Jetpack Glance, Material 3, Android SDK 35, Java 11.
+* **Engineering Methods:** Custom Canvas drawing (for progress gauges), gesture-based interaction models (slide-to-confirm), spring animation physics (`bounceClick`), decoupled rolling digit display rendering (`AnimatedWeightText`), and asynchronous glanceable widgets configured with fallback XML layouts.
+
+## Getting Started
+
+### Prerequisites
+* JDK 17
+* Android Studio Ladybug or later
+* Android SDK (API Level 35)
+
+### Installation and Usage
+
+```bash
+# Clone the repository
+git clone https://github.com/username/CaneTrack.git
+
+# Navigate into the project directory
+cd CaneTrack
+
+# Build and generate the debug APK
+./gradlew assembleDebug
+```
+
+For Windows environments using PowerShell:
+```powershell
 $env:JAVA_HOME="E:\AndroidStudio\jbr"
 .\gradlew.bat assembleDebug
 ```
-### Bash / Command Prompt
-```text
+
+For Windows using Command Prompt:
+```cmd
 set JAVA_HOME="E:\AndroidStudio\jbr"
 gradlew.bat assembleDebug
 ```
-TIP
-The resulting standalone debug application binary package will be generated at: app/build/outputs/apk/debug/app-debug.apk
 
-Developed with for high-performance agricultural operations.
+## Key Features
+
+* **Premium Obsidian Forest System:** Sleek slate backgrounds (`#070A13`) engineered for outdoor high-glare environments.
+* **Circular Progress Canvas Gauge:** Custom canvas progress arc mapping performance sweeps against a 5,000 kg target.
+* **Slide-to-Confirm Swipe:** Safety-first drag-and-swipe gesture capsule replacing tap triggers to eliminate accidental submissions.
+* **Odometer Weight Readouts:** Independent column scrolling (`AnimatedWeightText`) for weight changes to improve dynamic numeric visibility.
+* **Jetpack Glance Home Screen Widget:** Displays real-time earnings (`₹`) and session weight progress directly on the device home screen.
+
+## Directory Structure
+
+```text
+CaneTrack/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/         # Kotlin/Java codebase
+│   │   │   └── res/          # XML Layout resources (widget fallback layout)
+│   │   └── build.gradle      # App-level dependencies (Glance 1.1.0)
+│   └── build/
+├── gradlew.bat
+└── build.gradle              # Project-level configuration
+```
+
+## Configuration
+No special environment secrets are required. Ensure your SDK path is configured in the root-level `local.properties` file:
+```properties
+sdk.dir=/path/to/your/android/sdk
+```
+
+## Contributing
+Contributions to extend utility features or optimize spring transitions are welcome. Please open an issue to discuss design changes or submit a Pull Request directly.
+
+## License
+
+This project is licensed under the MIT License.
