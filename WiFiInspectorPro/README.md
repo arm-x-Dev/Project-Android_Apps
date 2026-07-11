@@ -1,4 +1,4 @@
-# 📡 WiFi Inspector Pro
+# WiFi Inspector Pro
 
 [![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
 [![Kotlin](https://img.shields.io/badge/Kotlin-v1.9.0-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
@@ -10,7 +10,7 @@
 
 ---
 
-## ✨ Key Upgrades & New Features
+## Key Upgrades & New Features
 
 We have upgraded the core architecture of the app to deliver an extremely polished, tactile, and responsive user experience. Here is a breakdown of the new features:
 
@@ -36,7 +36,7 @@ We have upgraded the core architecture of the app to deliver an extremely polish
 
 ---
 
-## 🚀 Quick Install (Download the App)
+## Quick Install (Download the App)
 
 If you want to use the app on your Android phone immediately:
 
@@ -49,7 +49,7 @@ If you want to use the app on your Android phone immediately:
 
 ---
 
-## 💻 Developer Setup (Android Studio)
+## Developer Setup (Android Studio)
 
 To inspect, edit, or compile the source code:
 
@@ -65,7 +65,7 @@ To inspect, edit, or compile the source code:
 
 ---
 
-## 🛠️ How to Use the App
+## How to Use the App
 
 ### 1. Permissions & Edge-to-Edge Comfort
 *   Upon first launch, the app prompts for Location access—this is required by the Android OS to scan for nearby wireless routers, SSID frequencies, and dBm strengths. All layouts are bounded with status bar insets to prevent UI text overlaps under front-facing camera notches.
@@ -79,7 +79,7 @@ To inspect, edit, or compile the source code:
 ### 4. Active Grid Scanning
 *   Walk to different physical areas of a room to record signal details:
     *   **Tap a Cell:** Triggers a 5-second sonar ripple scan, locking down the precise average decibel reading. The active cell floats and scales up using custom spring physics during the sweep.
-    *   **Long Press a Cell:** Assign icons such as Router 🌐, Door 🚪, Window 🪟, or Wall 🧱 to map obstacles and identify interference dead zones.
+    *   **Long Press a Cell:** Assign icons such as Router , Door , Window , or Wall  to map obstacles and identify interference dead zones.
 
 ### 5. Review Heatmap Archives
 *   Tap **Finalize Report** to output logs. Go to **View Scan History** from the home panel to inspect saved reports complete with smooth Bezier charts and Slate-to-Indigo bilinear heatmaps tracking coverage shifts.
